@@ -15,8 +15,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class MemberController {
 
-    MemberService memberService;
-    TokenService tokenService;
+    private final MemberService memberService;
+    private final TokenService tokenService;
 
     public MemberController(MemberService memberService, TokenService tokenService) {
         this.memberService = memberService;
