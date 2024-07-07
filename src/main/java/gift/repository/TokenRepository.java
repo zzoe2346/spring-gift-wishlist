@@ -57,16 +57,14 @@ public class TokenRepository {
     }
 
     public void deleteAll() {
-        String sql= "delete from token";
+        String sql = "delete from token";
         jdbcTemplate.update(sql);
     }
 
     private static class TokenRowMapper implements RowMapper<Token> {
         @Override
         public Token mapRow(ResultSet rs, int rowNum) throws SQLException {
-            Token token = new Token();
-            token.setMemberId(rs.getLong("memberId"));
-            token.setValue(rs.getString("tokenValue"));
+            Token token = new Token(rs.getLong("memberId"), rs.getString("tokenValue"));
             return token;
         }
     }
